@@ -3,6 +3,13 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+
+void outputSong(std::string array[], int size)
+{
+    for(int i = 0; i < size;i++)
+        std::cout << array[i] << "  ";
+}
+
 int main()
 {
 
@@ -106,7 +113,6 @@ int main()
     //https://southfloridareporter.com/these-are-the-top-50-happiest-songs-ever-released/#:~:text=Queen%E2%80%99s%20%E2%80%98Don%E2%80%99t%20Stop%20Me%20Now%E2%80%99%2C%20%E2%80%98Stayin%E2%80%99%20Alive%E2%80%99%20by,likely%20to%20put%20you%20in%20a%20good%20mood.
     std::string joy[] = {"Mr Blue Sky,Elo",
 
-    //https://pickuptheguitar.com/best-christmas-songs/
 "Don’t Stop Me Now, Queen",
 "Stayin’ Alive ,Bee Gees",
 "Dancing Queen,Abba",
@@ -131,6 +137,8 @@ int main()
 "Finally,Ce Ce Peniston",
 "You’re The First The Last My Everything,Barry white",
 "I Wanna Dance With Somebody (Who Loves Me),Whitney Houston"};
+
+//https://pickuptheguitar.com/best-christmas-songs/
     std::string christmas[] = {"All I Want For Christmas Is You,Mariah Carey",
         "Last Christmas,Wham!",
         "Santa Claus Is Coming To Town,Bruce Springsteen",
@@ -164,9 +172,9 @@ int main()
     randomSong = rand() % (MAX_VALUE , MIN_VALUE + 1) + MIN_VALUE;
 
 
-
-   for(int i = 0; i < sizeTopics;i++)
-        std::cout << topics[i] << "  ";
+    outputSong(topics,sizeTopics);
+//   for(int i = 0; i < sizeTopics;i++)
+   //     std::cout << topics[i] << "  ";
 
     std::cout << "\nWhich of the " << sizeTopics << " topics would you like to choose?\n";
 
@@ -176,16 +184,14 @@ int main()
     {
         std::cout << "The topic you choose was not part of the " << sizeTopics << " topics.\n";
         std::cout << "Here are the topics again.\n";
-        for(int i = 0; i < sizeTopics;i++)
-            std::cout << topics[i] << "  ";
+        outputSong(topics,sizeTopics);
         std::cout << "Please choose one of " << sizeTopics << " topics.\n";
         std::cin >> topicChoice;
     }
 
     if (topicChoice == 1)
     {
-        for(int i = 0; i < sizeHoliday;i++)
-            std::cout << holiday[i] << "  ";
+        outputSong(holiday,sizeHoliday);
 
         std::cout << "\nWhich of the " << sizeHoliday << " holidays would you like to choose?\n";
 
@@ -195,8 +201,7 @@ int main()
         {
             std::cout << "The topic you choose was not part of the " << sizeHoliday << " topics.\n";
             std::cout << "Here are the topics again.\n";
-            for(int i = 0; i < sizeHoliday;i++)
-                std::cout << holiday[i] << "  ";
+            outputSong(holiday,sizeHoliday);
             std::cout << "Please choose one of " << sizeHoliday << " topics.\n";
             std::cin >> topicChoice;
         }
@@ -211,8 +216,7 @@ int main()
     }
     else if (topicChoice == 3)
     {
-        for(int i = 0; i < sizeMood;i++)
-            std::cout << mood[i] << "  ";
+        outputSong(mood,sizeMood);
 
         std::cout << "\nWhich of the " << sizeMood << " mood would you like to choose?\n";
 
