@@ -4,10 +4,25 @@
 #include <ctime>
 #include <cmath>
 
-void outputSong(std::string array[], int size)
+void outputSong(std::string arrays[], int sizes)
 {
-    for(int i = 0; i < size;i++)
-        std::cout << array[i] << "  ";
+    for(int i = 0; i < sizes;i++)
+        std::cout << arrays[i] << "  ";
+}
+
+int checkInput(std::string arrays[], int sizes)
+{
+    int input;
+    std::cin >> input;
+    while(input < 1 || input > sizes)
+    {
+        std::cout << "The topic you choose was not part of the " << sizes << " topics.\n";
+        std::cout << "Here are the topics again.\n";
+        outputSong(arrays,sizes);
+        std::cout << "Please choose one of " << sizes << " topics.\n";
+        std::cin >> input;
+    }
+    return input;
 }
 
 int main()
@@ -178,9 +193,9 @@ int main()
 
     std::cout << "\nWhich of the " << sizeTopics << " topics would you like to choose?\n";
 
-    std::cin >> topicChoice;
+    topicChoice = checkInput(topics,sizeTopics);
 
-    while(topicChoice < 1 || topicChoice > sizeTopics)
+    /*while(topicChoice < 1 || topicChoice > sizeTopics)
     {
         std::cout << "The topic you choose was not part of the " << sizeTopics << " topics.\n";
         std::cout << "Here are the topics again.\n";
@@ -188,23 +203,14 @@ int main()
         std::cout << "Please choose one of " << sizeTopics << " topics.\n";
         std::cin >> topicChoice;
     }
-
+*/
     if (topicChoice == 1)
     {
         outputSong(holiday,sizeHoliday);
 
         std::cout << "\nWhich of the " << sizeHoliday << " holidays would you like to choose?\n";
 
-        std::cin >> topicChoice;
-
-        while(topicChoice < 1 || topicChoice > sizeHoliday)
-        {
-            std::cout << "The topic you choose was not part of the " << sizeHoliday << " topics.\n";
-            std::cout << "Here are the topics again.\n";
-            outputSong(holiday,sizeHoliday);
-            std::cout << "Please choose one of " << sizeHoliday << " topics.\n";
-            std::cin >> topicChoice;
-        }
+        topicChoice = checkInput(holiday,sizeHoliday);
         switch(topicChoice)
         {
             case 1: std::cout<< christmas[randomSong]; break;
@@ -220,17 +226,7 @@ int main()
 
         std::cout << "\nWhich of the " << sizeMood << " mood would you like to choose?\n";
 
-        std::cin >> topicChoice;
-
-        while(topicChoice < 1 || topicChoice > sizeMood)
-        {
-            std::cout << "The topic you choose was not part of the " << sizeMood << " topics.\n";
-            std::cout << "Here are the topics again.\n";
-            for(int i = 0; i < sizeMood;i++)
-                std::cout << mood[i] << "  ";
-            std::cout << "Please choose one of " << sizeMood << " topics.\n";
-            std::cin >> topicChoice;
-        }
+        topicChoice = checkInput(mood,sizeMood);
 
         //std::cout << "Here is a cool song from " << mood[topicChoice] << ": \n";
 
@@ -246,22 +242,11 @@ int main()
     }
     else if (topicChoice == 2)
     {
-        for(int i = 0; i < sizeSinger;i++)
-            std::cout << singer[i] << "  ";
+        outputSong(singer,sizeSinger);
 
         std::cout << "\nWhich of the " << sizeSinger << " genres would you like to choose?\n";
 
-        std::cin >> topicChoice;
-
-        while(topicChoice < 1 || topicChoice > sizeSinger)
-        {
-            std::cout << "The topic you choose was not part of the " << sizeSinger << " topics.\n";
-            std::cout << "Here are the topics again.\n";
-            for(int i = 0; i < sizeSinger;i++)
-                std::cout << singer[i] << "  ";
-            std::cout << "Please choose one of " << sizeSinger << " topics.\n";
-            std::cin >> topicChoice;
-        }
+        topicChoice = checkInput(singer,sizeSinger);
         std::cout << "Here is a cool song from " << singer[topicChoice] << ": \n";
 
         switch(topicChoice)
