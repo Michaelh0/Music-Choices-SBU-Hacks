@@ -12,6 +12,7 @@ void outputSong(std::string arrays[], int sizes)
 
 int checkInput(std::string arrays[], int sizes)
 {
+    std::cout << "\nWhich of the " << sizes << " topics would you like to choose?\n";
     int input;
     std::cin >> input;
     while(input < 1 || input > sizes)
@@ -74,7 +75,7 @@ int main()
 "Cannonball Adderley Quintet , Mercy, Mercy, Mercy",
 "Miles Davis, Blue in Green",
 "Dinah Washington , On The Sunny Side of the Street",
-"Art Blakey & The Jazz Messengers,  Moanin’",
+"Art Blakey & The Jazz Messengers,  Moanin\’",
 "Bud Powell ,  Un Poco Loco",
 "Benny Goodman , Sing, Sing, Sing (With a Swing)",
 "Chet Baker ,  My Funny Valentine",
@@ -128,29 +129,29 @@ int main()
     //https://southfloridareporter.com/these-are-the-top-50-happiest-songs-ever-released/#:~:text=Queen%E2%80%99s%20%E2%80%98Don%E2%80%99t%20Stop%20Me%20Now%E2%80%99%2C%20%E2%80%98Stayin%E2%80%99%20Alive%E2%80%99%20by,likely%20to%20put%20you%20in%20a%20good%20mood.
     std::string joy[] = {"Mr Blue Sky,Elo",
 
-"Don’t Stop Me Now, Queen",
-"Stayin’ Alive ,Bee Gees",
+"Don\’t Stop Me Now, Queen",
+"Stayin\’ Alive ,Bee Gees",
 "Dancing Queen,Abba",
-"Livin’ On a Prayer,Bon Jovi",
+"Livin\’ On a Prayer,Bon Jovi",
 "Come on Eileen,Dexys Midnight Runners",
 "You Can Call Me Al,Paul Simon",
 "Walking on Sunshine,Katrina and the Waves",
-"Just Can’t Get Enough,Depeche Mode",
+"Just Can\’t Get Enough,Depeche Mode",
 "Never Gonna Give You Up,Rick Astley",
 "Wake Up Boo,The Boo Radleys",
 "Girls Just Wanna Have Fun, Cyndi Lauper",
 "You Make Me Feel (Mighty Real),Sylvester",
 "Livin La Vida Loca,Ricky Martin",
-"You’re The One That I Want,John Travolta & Olivia Newton-John",
+"You\’re The One That I Want,John Travolta & Olivia Newton-John",
 "Good Times,Chic",
 "Crocodile Rock,Elton John",
 "Flashdance What a Feeling,Irene Cara",
 "December 1963 (Oh What a Night),Frankie Valli & The Four Seasons",
-"That’s The Way I Like It,KC and the Sunshine Band",
+"That\’s The Way I Like It,KC and the Sunshine Band",
 "Celebration,Kool and the Gang",
 "1999,Prince",
 "Finally,Ce Ce Peniston",
-"You’re The First The Last My Everything,Barry white",
+"You\’re The First The Last My Everything,Barry white",
 "I Wanna Dance With Somebody (Who Loves Me),Whitney Houston"};
 
 //https://pickuptheguitar.com/best-christmas-songs/
@@ -191,8 +192,6 @@ int main()
 //   for(int i = 0; i < sizeTopics;i++)
    //     std::cout << topics[i] << "  ";
 
-    std::cout << "\nWhich of the " << sizeTopics << " topics would you like to choose?\n";
-
     topicChoice = checkInput(topics,sizeTopics);
 
     /*while(topicChoice < 1 || topicChoice > sizeTopics)
@@ -208,8 +207,6 @@ int main()
     {
         outputSong(holiday,sizeHoliday);
 
-        std::cout << "\nWhich of the " << sizeHoliday << " holidays would you like to choose?\n";
-
         topicChoice = checkInput(holiday,sizeHoliday);
         switch(topicChoice)
         {
@@ -223,8 +220,6 @@ int main()
     else if (topicChoice == 3)
     {
         outputSong(mood,sizeMood);
-
-        std::cout << "\nWhich of the " << sizeMood << " mood would you like to choose?\n";
 
         topicChoice = checkInput(mood,sizeMood);
 
@@ -243,8 +238,6 @@ int main()
     else if (topicChoice == 2)
     {
         outputSong(singer,sizeSinger);
-
-        std::cout << "\nWhich of the " << sizeSinger << " genres would you like to choose?\n";
 
         topicChoice = checkInput(singer,sizeSinger);
         std::cout << "Here is a cool song from " << singer[topicChoice] << ": \n";
